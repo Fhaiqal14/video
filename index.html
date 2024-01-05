@@ -1,0 +1,84 @@
+<style>
+    *, html, body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+    }
+
+    video {
+        display: block;
+        width: 100%;
+        height: 100vh;  
+    }
+
+    .video-component {
+        position: absolute;
+        bottom: 0;
+        padding: 15px;
+    }
+
+    .btn {
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 800;
+        border-radius: 8px;
+        margin: 2px;
+    }
+
+    .btn-play {
+        background-color: crimson;
+        color: white;
+    }
+
+    .btn-minisize {
+        background-color: black;
+        color: white;
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+</head>
+<body>
+    <div class="container">
+        <video width="720">
+            <source src="./assests/albusyro.mp4" type="video/mp4" />
+        </video>
+        
+        <div class="video-component">
+            <button onclick="play()" class="btn btn-play">PLAY</button>
+            <button onclick="pause()" class="btn btn-pause">PAUSE</button>
+            <button onclick="minimize()" class="btn btn-minisize">MINIMIZE</button>
+        </div>
+    </div>
+    
+
+    <script>
+        const videoComponent = document.querySelector("video")
+
+        function play() {
+            console.log("playing")
+            videoComponent.play()
+        }
+        function pause() {
+            console.log("pause")
+            videoComponent.pause()
+        }
+        function minimize() {
+            console.log("minimize")
+            videoComponent.requestPictureInPicture()
+        }
+    </script>
+</body>
+</html>
